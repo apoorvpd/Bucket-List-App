@@ -33,4 +33,3 @@ public class PlacesToGoActivity extends AppCompatActivity {
         placesToGoList.setAdapter(placesToGoAdapter);
     }
     }
-}
