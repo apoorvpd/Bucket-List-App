@@ -1,10 +1,10 @@
 package com.example.bucketlistapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
 
 public class ThingsToDoActivity extends AppCompatActivity {
 
@@ -13,7 +13,7 @@ public class ThingsToDoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_things_to_do);
 
-        ListView thingsToDoList = findViewById(R.id.list_view_things_to_do);
+        RecyclerView list = findViewById(R.id.recycler_view_things_to_do);
 
         BucketList[] things = {
                 new BucketList("Kilimanjaro", R.drawable.kilimanjaro),
@@ -24,12 +24,8 @@ public class ThingsToDoActivity extends AppCompatActivity {
 
         };
 
-        ArrayAdapter<BucketList> thingsToDoAdapter = new ArrayAdapter<>(
-                ThingsToDoActivity.this,
-                android.R.layout.simple_list_item_1,
-                things
-        );
+       BucketListAdapter adapter = new BucketListAdapter(things);
 
-        thingsToDoList.setAdapter(thingsToDoAdapter);
+        list.setAdapter(adapter);
     }
 }

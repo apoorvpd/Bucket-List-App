@@ -1,10 +1,11 @@
 package com.example.bucketlistapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
 
 public class PlacesToGoActivity extends AppCompatActivity {
 
@@ -13,7 +14,7 @@ public class PlacesToGoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_to_go);
 
-        ListView placesToGoList = findViewById(R.id.list_view_places_to_go);
+        RecyclerView list = findViewById(R.id.recycler_view_places_to_go);
 
         BucketList[] places = {
                 new BucketList("Amazon", R.drawable.amazon),
@@ -24,12 +25,8 @@ public class PlacesToGoActivity extends AppCompatActivity {
 
         };
 
-        ArrayAdapter<BucketList> placesToGoAdapter = new ArrayAdapter<>(
-                PlacesToGoActivity.this,
-                android.R.layout.simple_list_item_1,
-                places
-        );
+        BucketListAdapter adapter = new BucketListAdapter(places);
 
-        placesToGoList.setAdapter(placesToGoAdapter);
+        list.setAdapter(adapter);
     }
     }
