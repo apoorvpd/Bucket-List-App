@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BucketListApp">
-        <activity android:name=".PlacesToGoActivity"></activity>
-        <activity android:name=".ThingsToDoActivity" />
+        <activity android:name=".PlacesToGoActivity"
+                  android:label="Places to go"
+                  android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ThingsToDoActivity"
+                  android:label="Things to do"
+                  android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
